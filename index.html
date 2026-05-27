@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Convite Realeza</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+
+      min-height:100vh;
+
+      display:flex;
+      justify-content:center;
+      align-items:center;
+
+      overflow:hidden;
+      position:relative;
+
+      padding:20px;
+
+      font-family:'Poppins', sans-serif;
+
+      /* IMAGEM DE FUNDO */
+
+      background:
+      linear-gradient(
+      rgba(255,255,255,.35),
+      rgba(255,255,255,.35)
+      ),
+
+      url('https://i.pinimg.com/736x/91/96/de/9196de8e8d84cf921f6a94ced1dea595.jpg');
+
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+    }
+
+    /* =========================
+       BRILHOS FLUTUANTES
+    ========================== */
+
+    .particles{
+      position:absolute;
+      inset:0;
+      overflow:hidden;
+      pointer-events:none;
+    }
+
+    .particles span{
+
+      position:absolute;
+
+      width:6px;
+      height:6px;
+
+      border-radius:50%;
+
+      background:#e6c46f;
+
+      box-shadow:
+      0 0 10px #fff3c8,
+      0 0 20px #d8b45f,
+      0 0 35px rgba(216,180,95,.9);
+
+      animation:float linear infinite;
+    }
+
+    @keyframes float{
+
+      from{
+        transform:translateY(100vh) scale(0);
+        opacity:0;
+      }
+
+      20%{
+        opacity:1;
+      }
+
+      to{
+        transform:translateY(-10vh) scale(1.5);
+        opacity:0;
+      }
+
+    }
+
+    /* =========================
+       CONVITE
+    ========================== */
+
+    .invite{
+
+      width:100%;
+      max-width:430px;
+
+      position:relative;
+
+      overflow:hidden;
+
+      border-radius:42px;
+
+      padding:42px 28px;
+
+      backdrop-filter:blur(14px);
+
+      background:
+      linear-gradient(
+      180deg,
+      rgba(255,252,245,.92),
+      rgba(248,238,218,.95)
+      );
+
+      border:1px solid rgba(184,145,74,.2);
+
+      box-shadow:
+      0 0 40px rgba(185,150,84,.25),
+      0 0 100px rgba(185,150,84,.12),
+      inset 0 0 40px rgba(255,255,255,.7);
+
+      animation:glow 6s ease-in-out infinite;
+    }
+
+    @keyframes glow{
+
+      0%,100%{
+
+        box-shadow:
+        0 0 40px rgba(185,150,84,.25),
+        0 0 100px rgba(185,150,84,.12),
+        inset 0 0 40px rgba(255,255,255,.7);
+      }
+
+      50%{
+
+        box-shadow:
+        0 0 70px rgba(185,150,84,.35),
+        0 0 140px rgba(185,150,84,.2),
+        inset 0 0 50px rgba(255,255,255,.8);
+      }
+
+    }
+
+    /* =========================
+       BORDA DOURADA PREMIUM
+    ========================== */
+
+    .invite::before{
+
+      content:"";
+
+      position:absolute;
+
+      inset:0;
+
+      padding:3px;
+
+      border-radius:42px;
+
+      background:
+      linear-gradient(
+      135deg,
+      #fff6dc,
+      #e7c879,
+      #c79b47,
+      #fff6dc
+      );
+
+      background-size:300% 300%;
+
+      animation:borderAnimation 7s linear infinite;
+
+      -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+
+      -webkit-mask-composite:xor;
+      mask-composite:exclude;
+    }
+
+    @keyframes borderAnimation{
+
+      0%{
+        background-position:0% 50%;
+      }
+
+      100%{
+        background-position:100% 50%;
+      }
+
+    }
+
+    /* =========================
+       CANTOS REAIS
+    ========================== */
+
+    .corner{
+
+      position:absolute;
+
+      width:85px;
+      height:85px;
+
+      opacity:.85;
+    }
+
+    .corner::before,
+    .corner::after{
+
+      content:"";
+
+      position:absolute;
+
+      background:
+      linear-gradient(to right,
+      #f4e1b2,
+      #c79b47);
+    }
+
+    .corner.top-left{
+      top:16px;
+      left:16px;
+    }
+
+    .corner.top-right{
+      top:16px;
+      right:16px;
+      transform:rotate(90deg);
+    }
+
+    .corner.bottom-left{
+      bottom:16px;
+      left:16px;
+      transform:rotate(-90deg);
+    }
+
+    .corner.bottom-right{
+      bottom:16px;
+      right:16px;
+      transform:rotate(180deg);
+    }
+
+    .corner::before{
+
+      width:100%;
+      height:3px;
+
+      border-radius:20px;
+    }
+
+    .corner::after{
+
+      width:3px;
+      height:100%;
+
+      border-radius:20px;
+    }
+
+    /* =========================
+       FLORAL
+    ========================== */
+
+    .floral{
+
+      position:absolute;
+
+      top:-15px;
+      left:50%;
+
+      transform:translateX(-50%);
+
+      font-size:120px;
+
+      opacity:.07;
+
+      color:#b8914a;
+    }
+
+    /* =========================
+       TOPO
+    ========================== */
+
+    .crown{
+
+      text-align:center;
+
+      font-size:80px;
+
+      margin-bottom:6px;
+
+      animation:crownFloat 4s ease-in-out infinite;
+
+      filter:
+      drop-shadow(0 0 10px rgba(199,155,71,.8))
+      drop-shadow(0 0 25px rgba(199,155,71,.5));
+    }
+
+    @keyframes crownFloat{
+
+      0%,100%{
+        transform:translateY(0);
+      }
+
+      50%{
+        transform:translateY(-10px);
+      }
+
+    }
+
+    .small-title{
+
+      text-align:center;
+
+      letter-spacing:5px;
+
+      text-transform:uppercase;
+
+      color:#9b7434;
+
+      font-size:11px;
+
+      margin-bottom:16px;
+    }
+
+    h1{
+
+      text-align:center;
+
+      font-family:'Cinzel', serif;
+
+      font-size:44px;
+
+      color:#8a6430;
+
+      text-shadow:
+      0 0 10px rgba(199,155,71,.2);
+
+      margin-bottom:10px;
+    }
+
+    .age{
+
+      text-align:center;
+
+      font-family:'Great Vibes', cursive;
+
+      font-size:36px;
+
+      color:#c79b47;
+
+      margin-bottom:22px;
+    }
+
+    .description{
+
+      text-align:center;
+
+      color:#7b5c2c;
+
+      line-height:1.9;
+
+      font-size:14px;
+
+      margin-bottom:32px;
+    }
+
+    /* =========================
+       DIVISOR
+    ========================== */
+
+    .divider{
+
+      display:flex;
+
+      align-items:center;
+      justify-content:center;
+
+      gap:12px;
+
+      margin-bottom:28px;
+    }
+
+    .divider span{
+
+      width:85px;
+      height:2px;
+
+      background:
+      linear-gradient(to right,
+      transparent,
+      #c79b47,
+      transparent);
+    }
+
+    .divider i{
+
+      font-style:normal;
+
+      color:#c79b47;
+
+      font-size:18px;
+
+      animation:shine 2s infinite;
+    }
+
+    @keyframes shine{
+
+      0%,100%{
+        transform:scale(1);
+        opacity:.7;
+      }
+
+      50%{
+        transform:scale(1.5);
+        opacity:1;
+      }
+
+    }
+
+    /* =========================
+       CARDS
+    ========================== */
+
+    .info{
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+    }
+
+    .card{
+
+      position:relative;
+
+      display:flex;
+
+      gap:14px;
+
+      padding:18px;
+
+      border-radius:24px;
+
+      overflow:hidden;
+
+      background:
+      linear-gradient(
+      135deg,
+      rgba(255,255,255,.9),
+      rgba(250,241,224,.85)
+      );
+
+      border:1px solid rgba(199,155,71,.16);
+
+      transition:.4s;
+    }
+
+    .card::before{
+
+      content:"";
+
+      position:absolute;
+
+      inset:0;
+
+      background:
+      linear-gradient(
+      120deg,
+      transparent,
+      rgba(255,255,255,.75),
+      transparent
+      );
+
+      transform:translateX(-100%);
+    }
+
+    .card:hover::before{
+      animation:glass 1s;
+    }
+
+    @keyframes glass{
+
+      to{
+        transform:translateX(120%);
+      }
+
+    }
+
+    .card:hover{
+
+      transform:translateY(-6px);
+
+      border-color:rgba(199,155,71,.5);
+
+      box-shadow:
+      0 0 30px rgba(199,155,71,.15);
+    }
+
+    .icon{
+
+      width:58px;
+      height:58px;
+
+      min-width:58px;
+
+      border-radius:18px;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      font-size:24px;
+
+      background:
+      linear-gradient(
+      135deg,
+      #fff4d6,
+      #d9b36a,
+      #b8914a
+      );
+
+      color:white;
+
+      box-shadow:
+      0 0 18px rgba(199,155,71,.35);
+
+      animation:iconGlow 3s infinite;
+    }
+
+    @keyframes iconGlow{
+
+      0%,100%{
+        box-shadow:
+        0 0 18px rgba(199,155,71,.35);
+      }
+
+      50%{
+        box-shadow:
+        0 0 28px rgba(199,155,71,.55);
+      }
+
+    }
+
+    .card-content h3{
+
+      color:#8a6430;
+
+      margin-bottom:5px;
+
+      font-size:15px;
+    }
+
+    .card-content p{
+
+      color:#6d5328;
+
+      font-size:14px;
+
+      line-height:1.6;
+    }
+
+    /* =========================
+       BOTÃO
+    ========================== */
+
+    .btn{
+
+      width:100%;
+
+      margin-top:32px;
+
+      border:none;
+
+      border-radius:24px;
+
+      padding:18px;
+
+      cursor:pointer;
+
+      overflow:hidden;
+
+      position:relative;
+
+      font-weight:700;
+
+      letter-spacing:1px;
+
+      font-size:15px;
+
+      color:#7a5822;
+
+      background:
+      linear-gradient(
+      135deg,
+      #fff6dc,
+      #d8b266,
+      #b8914a
+      );
+
+      box-shadow:
+      0 0 25px rgba(199,155,71,.4);
+
+      transition:.4s;
+    }
+
+    .btn::before{
+
+      content:"";
+
+      position:absolute;
+
+      top:0;
+      left:-100%;
+
+      width:100%;
+      height:100%;
+
+      background:
+      linear-gradient(
+      120deg,
+      transparent,
+      rgba(255,255,255,.7),
+      transparent
+      );
+    }
+
+    .btn:hover::before{
+      animation:shineBtn 1s;
+    }
+
+    @keyframes shineBtn{
+
+      to{
+        left:120%;
+      }
+
+    }
+
+    .btn:hover{
+
+      transform:scale(1.03);
+
+      box-shadow:
+      0 0 45px rgba(199,155,71,.6);
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
+
+    .footer{
+
+      margin-top:22px;
+
+      text-align:center;
+
+      color:#8a6430;
+
+      font-size:13px;
+    }
+
+    @media(max-width:430px){
+
+      .invite{
+        padding:38px 22px;
+      }
+
+      h1{
+        font-size:36px;
+      }
+
+      .crown{
+        font-size:68px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- PARTÍCULAS -->
+
+  <div class="particles">
+
+    <span style="left:5%; animation-duration:8s;"></span>
+    <span style="left:15%; animation-duration:10s;"></span>
+    <span style="left:26%; animation-duration:7s;"></span>
+    <span style="left:38%; animation-duration:12s;"></span>
+    <span style="left:50%; animation-duration:9s;"></span>
+    <span style="left:64%; animation-duration:11s;"></span>
+    <span style="left:78%; animation-duration:8s;"></span>
+    <span style="left:92%; animation-duration:10s;"></span>
+
+  </div>
+
+  <!-- CONVITE -->
+
+  <div class="invite">
+
+    <!-- CANTOS -->
+
+    <div class="corner top-left"></div>
+    <div class="corner top-right"></div>
+    <div class="corner bottom-left"></div>
+    <div class="corner bottom-right"></div>
+
+    <!-- FLORAL -->
+
+    <div class="floral">❦</div>
+
+    <!-- TOPO -->
+
+    <div class="crown">
+      👑
+    </div>
+
+    <div class="small-title">
+      Convite Real
+    </div>
+
+    <h1>Maria Alice</h1>
+
+    <div class="age">
+      5 anos
+    </div>
+
+    <p class="description">
+      Em um reino encantado, uma noite mágica será celebrada
+      para comemorar o aniversário da nossa pequena princesa.
+      Sua presença tornará este momento ainda mais especial.
+    </p>
+
+    <!-- DIVISOR -->
+
+    <div class="divider">
+
+      <span></span>
+
+      <i>✦</i>
+
+      <span></span>
+
+    </div>
+
+    <!-- CARDS -->
+
+    <div class="info">
+
+      <div class="card">
+
+        <div class="icon">📍</div>
+
+        <div class="card-content">
+
+          <h3>Endereço</h3>
+
+          <p>
+            Rua das Flores, 123<br>
+            Recife - PE
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="card">
+
+        <div class="icon">⏰</div>
+
+        <div class="card-content">
+
+          <h3>Horário</h3>
+
+          <p>
+            Sábado • 18:00h<br>
+            15 de Junho de 2026
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="card">
+
+        <div class="icon">💌</div>
+
+        <div class="card-content">
+
+          <h3>Confirme sua presença</h3>
+
+          <p>
+            Sua presença tornará essa noite ainda mais inesquecível.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- BOTÃO -->
+
+    <button class="btn" id="confirmBtn">
+      ✨ Confirmar Presença ✨
+    </button>
+
+    <!-- FOOTER -->
+
+    <div class="footer">
+      Esperamos você para esta celebração real ✨
+    </div>
+
+  </div>
+
+  <script>
+
+    const btn = document.getElementById('confirmBtn');
+
+    btn.addEventListener('click', () => {
+
+      btn.innerHTML = '👑 Presença Confirmada 👑';
+
+      btn.style.transform = 'scale(1.05)';
+
+      navigator.vibrate?.(120);
+
+      setTimeout(() => {
+        btn.style.transform = 'scale(1)';
+      }, 250);
+
+    });
+
+  </script>
+
+</body>
+</html>
